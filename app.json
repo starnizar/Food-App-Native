@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "First screen --- done",
+    "githubUrl": "https://github.com/starnizar/Food-App-Native.git"
   }
 }

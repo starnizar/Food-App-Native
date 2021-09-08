@@ -1,0 +1,1 @@
+export const CHANGE_INDEX = 'APP/CHANGE_INDEX'
