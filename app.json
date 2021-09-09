@@ -28,7 +28,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "'Create Account Screen --- done'\n",
+    "description": "login, sendPassword, resetPassword screens --- done",
     "githubUrl": "https://github.com/starnizar/Food-App-Native.git"
   }
 }

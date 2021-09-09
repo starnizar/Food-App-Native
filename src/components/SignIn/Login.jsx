@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     },
     pForgot:{
         marginTop: '-1%',
+        paddingLeft: 0,
         marginBottom: 0,
         color: '#AAACAE',
         textDecorationLine: 'underline'
