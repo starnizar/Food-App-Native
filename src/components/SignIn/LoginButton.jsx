@@ -1,8 +1,16 @@
 import React from 'react'
-import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native'
+import {Alert, Dimensions, Pressable, StyleSheet, Text, View} from 'react-native'
 import GoogleIcon from "../../assets/img/GoogleIcon";
 
-const LoginButton = ({navigation, createPath, loginPath}) => {
+const LoginButton = ({navigate, createButtonPath, loginButtonPath, routeName}) => {
+
+    const createAccBtnHandler = () => (routeName === createButtonPath)
+        ? Alert.alert('Logged in with new account')
+        : navigate(createButtonPath)
+
+    const signInBtHandler = () => (routeName === loginButtonPath)
+        ? Alert.alert('Logged in with existing account')
+        : navigate(loginButtonPath)
 
     return (
         <View style={styles.signInButtonsWrapper}>
@@ -11,11 +19,11 @@ const LoginButton = ({navigation, createPath, loginPath}) => {
                 <Text style={styles.googleBtnText}>Sign-in with Google</Text>
             </Pressable>
 
-            <Pressable onPress={()=>navigation.navigate(createPath)} style={styles.createAccBtn}>
+            <Pressable onPress={createAccBtnHandler} style={styles.createAccBtn}>
                 <Text style={styles.createAccountBtnText}>Create an account</Text>
             </Pressable>
 
-            <Pressable onPress={()=>navigation.navigate(loginPath)}>
+            <Pressable onPress={signInBtHandler}>
                 <Text style={styles.loginBtnText}>Login to my account</Text>
             </Pressable>
         </View>

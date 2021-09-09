@@ -1,38 +1,59 @@
 import React from 'react'
-import {View, Text, TextInput, Keyboard, TouchableWithoutFeedback, StyleSheet, Dimensions,KeyboardAvoidingView, } from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    Keyboard,
+    TouchableWithoutFeedback,
+    StyleSheet,
+    Dimensions,
+    KeyboardAvoidingView,
+    Pressable,
+} from 'react-native';
 import Header from "../Header";
 import LoginButton from "./LoginButton";
+import {useRoute} from "@react-navigation/native";
 
 const CreateAccount = ({navigation}) => {
+
+    const route = useRoute()
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.wrapper}>
+
                 <Header />
-                <Text style={styles.createText}>Create an account</Text>
-                <Text style={styles.welcomeText}>Welcome friend, enter your details so lets get started in ordering food.</Text>
 
+                <Text style={styles.h1}>Create an account</Text>
+                <Text style={styles.p}>Welcome friend, enter your details so lets get started in ordering food.</Text>
 
-                        <View style={styles.btnWrapper}>
-                            <Text style={styles.inputLabel}>Email Address</Text>
-                            <TextInput
-                                keyboardType='email-address'
-                                autoFocus={true}
-                                style={styles.input}
-                                placeholder='Enter email' />
-                        </View>
+                <KeyboardAvoidingView behavior='position' style={styles.btnWrapper}>
+                    <View style={styles.inputWrapper}>
+                        <Text style={styles.label}>Email Address</Text>
+                        <TextInput
+                            keyboardType='email-address'
+                            style={styles.input}
+                            placeholder='Enter email' />
+                    </View>
 
-                        <View style={styles.btnWrapper}>
-                            <Text style={styles.inputLabel}>Password</Text>
+                        <View style={styles.inputWrapper}>
+                            <Text style={styles.label}>Password</Text>
                             <TextInput style={styles.input} placeholder='Enter password' />
                         </View>
 
-                        <KeyboardAvoidingView behavior='position' style={styles.btnWrapper}>
-                            <Text style={styles.inputLabel}>Confirm Password</Text>
+                        <View style={styles.inputWrapper}>
+                            <Text style={styles.label}>Confirm Password</Text>
                             <TextInput style={styles.input} placeholder='Confirm password' />
-                        </KeyboardAvoidingView>
+                        </View>
+                </KeyboardAvoidingView>
 
+                <LoginButton
+                    navigate={navigation.navigate}
+                    createButtonPath={'CreateAccount'}
+                    loginButtonPath={'Login'}
+                    routeName={route.name}
+                />
 
-                <LoginButton navigation={navigation} createPath={'CreateAccount'} loginPath={'Login'} />
             </View>
         </TouchableWithoutFeedback>
 
@@ -47,13 +68,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F8FBFF'
     },
-    createText: {
+    h1: {
         fontSize: 24,
         lineHeight: 31,
         fontWeight: 'bold',
         color: '#1C1C1C'
     },
-    welcomeText: {
+    p: {
         width: Dimensions.get('window').width * 0.8,
         maxWidth: 320,
         fontSize: 14,
@@ -63,10 +84,10 @@ const styles = StyleSheet.create({
         marginTop: '5%',
         marginBottom: '15%'
     },
-    btnWrapper: {
+    inputWrapper: {
       marginBottom: '5%'
     },
-    inputLabel: {
+    label: {
         fontSize: 12,
         lineHeight: 16.44,
         paddingLeft: 23,

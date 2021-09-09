@@ -1,61 +1,45 @@
 import React from 'react'
 import {
+    StyleSheet,
     View,
     Text,
-    StyleSheet,
     TextInput,
-    Keyboard,
     Dimensions,
     TouchableWithoutFeedback,
+    Keyboard,
     Pressable
 } from 'react-native';
-import Header from '../Header';
-import LoginButton from './LoginButton';
-import {useRoute} from '@react-navigation/native';
+import Header from "../Header";
 
-const Login = ({navigation}) => {
-    const route = useRoute()
-
+const ForgotPassword = ({navigation}) => {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.wrapper}>
 
                 <Header />
 
-                <Text style={styles.h1}>Login to your account</Text>
-                <Text style={styles.p}>Good to see you again, enter your details below to continue ordering.</Text>
+                <Text style={styles.h1}>Forgot password</Text>
+                <Text style={styles.p}>Enter your email address to request a password reset.</Text>
 
                 <View style={styles.inputWrapper}>
-                    <Text style={styles.label}>Email Address</Text>
-                    <TextInput style={styles.input} placeholder='Enter email' />
+
+                    <Text style={styles.label}>Email address</Text>
+                    <TextInput keyboardType='email-address' style={styles.input} placeholder='Enter email address' />
                 </View>
 
-                <View style={styles.inputWrapper}>
-                    <Text style={styles.label}>Password</Text>
-                    <TextInput style={styles.input} placeholder='Enter password' />
-                </View>
-
-                <Pressable onPress={()=>navigation.navigate('ForgotPassword')}>
-                    <Text style={{...styles.label, ...styles.pForgot}}>forgot password?</Text>
+                <Pressable onPress={()=>navigation.navigate('ResetPassword')} style={styles.sendButton}>
+                    <Text style={styles.sendButtonText}>Send password</Text>
                 </Pressable>
-
-                <LoginButton
-                    routeName={route.name}
-                    navigate={navigation.navigate}
-                    loginButtonPath='Login'
-                    createButtonPath='CreateAccount'
-                />
-
             </View>
         </TouchableWithoutFeedback>
     )
 }
 
-export default Login
+export default ForgotPassword
 
 const styles = StyleSheet.create({
-    wrapper:{
-        height: '100%',
+    wrapper: {
+        flex: 1,
         alignItems: 'center',
         backgroundColor: '#F8FBFF'
     },
@@ -63,7 +47,8 @@ const styles = StyleSheet.create({
         fontSize: 24,
         lineHeight: 31,
         fontWeight: 'bold',
-        color: '#1C1C1C'
+        color: '#1C1C1C',
+        marginTop: '30%'
     },
     p: {
         width: Dimensions.get('window').width * 0.8,
@@ -74,12 +59,6 @@ const styles = StyleSheet.create({
         paddingLeft: 23,
         marginTop: '5%',
         marginBottom: '15%'
-    },
-    pForgot:{
-        marginTop: '-1%',
-        marginBottom: 0,
-        color: '#AAACAE',
-        textDecorationLine: 'underline'
     },
     inputWrapper: {
         marginBottom: '5%'
@@ -102,5 +81,23 @@ const styles = StyleSheet.create({
         borderColor: '#DFE2E6',
         borderStyle: 'solid',
         borderWidth: 1
+    },
+    sendButton: {
+        backgroundColor: '#FF774C',
+        borderRadius: 20,
+        marginVertical: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        width: Dimensions.get('window').width * 0.8,
+        shadowColor: 'rgba(202, 66, 17, 0.1)',
+        shadowOffset: {width: 0, height: 10},
+        shadowRadius: 30,
+        shadowOpacity: 1,
+    },
+    sendButtonText: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 14,
+        color: '#fff',
     }
 })
