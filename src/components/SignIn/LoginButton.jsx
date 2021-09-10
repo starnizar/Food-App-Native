@@ -5,11 +5,11 @@ import GoogleIcon from "../../assets/img/GoogleIcon";
 const LoginButton = ({navigate, createButtonPath, loginButtonPath, routeName}) => {
 
     const createAccBtnHandler = () => (routeName === createButtonPath)
-        ? Alert.alert('Logged in with new account')
+        ? navigate('HomeTabBar')
         : navigate(createButtonPath)
 
     const signInBtHandler = () => (routeName === loginButtonPath)
-        ? Alert.alert('Logged in with existing account')
+        ? navigate('HomeTabBar')
         : navigate(loginButtonPath)
 
     return (

@@ -1,15 +1,15 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 
-const Home = () => {
+const Notifications = () => {
     return (
         <View style={styles.wrapper}>
-            <Text>Home Screen</Text>
+            <Text>Notifications Screen</Text>
         </View>
     )
 }
 
-export default Home
+export default Notifications
 
 const styles = StyleSheet.create({
     wrapper: {

@@ -1,15 +1,15 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 
-const Home = () => {
+const Favorite = () => {
     return (
         <View style={styles.wrapper}>
-            <Text>Home Screen</Text>
+            <Text>Favorite Screen</Text>
         </View>
     )
 }
 
-export default Home
+export default Favorite
 
 const styles = StyleSheet.create({
     wrapper: {

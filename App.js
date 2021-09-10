@@ -8,7 +8,7 @@ import StartScreen from './src/components/StartScreen';
 import WelcomeScreen from './src/components/WelcomeScreen/WelcomeScreen';
 import CreateAccount from './src/components/SignIn/CreateAccaunt';
 import Login from './src/components/SignIn/Login';
-import HomeTabBar from './src/components/Application/HomeTabBar';
+import HomeTabBar from './src/components/Application/Home/HomeTabBar';
 import ForgotPassword from './src/components/SignIn/Forgot';
 import ResetPassword from './src/components/SignIn/Reset';
 
@@ -35,7 +35,7 @@ export default function App() {
                     <Stack.Screen name='ResetPassword' component={ResetPassword} />
                 </Stack.Group>
 
-                <Stack.Group>
+                <Stack.Group screenOptions={{gestureEnabled: false}}>
                     <Stack.Screen name='HomeTabBar' component={HomeTabBar} />
                 </Stack.Group>
 
